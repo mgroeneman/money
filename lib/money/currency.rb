@@ -202,8 +202,7 @@ class Money
       id = id.to_s.downcase
       raise(UnknownCurrency, "Unknown currency `#{id}'") unless self.class.stringified_keys.include?(id)
 
-      @id  = id.to_sym
-      data = self.class.table[@id]
+      data = self.class.table[id]
       data.each_pair do |key, value|
         instance_variable_set(:"@#{key}", value)
       end
